@@ -5,7 +5,7 @@
 
 	let status: 'OPEN' | 'CLOSED' = $state('OPEN');
 
-	function toggle() {
+	function onclick() {
 		status = status === 'OPEN' ? 'CLOSED' : 'OPEN';
 	}
 </script>
@@ -16,4 +16,4 @@
 <input type="text" bind:value={text} />
 
 <p>The store is now {status}</p>
-<button onclick={toggle}>Toggle Status</button>
+<button class="btn button bg-gray-400 border p-3 rounded-md" {onclick}>Toggle Status</button>
