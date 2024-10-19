@@ -1,7 +1,7 @@
 <script>
 	import Header from './Header.svelte';
-	let text = 'This is so amazing!';
-	let name = 'Magnus';
+	let text = $state('This is so amazing!');
+	let name = $state('Magnus');
 </script>
 
 <Header {name} {text}></Header>
