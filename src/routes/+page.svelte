@@ -5,3 +5,6 @@
 </script>
 
 <Header {name} {text}></Header>
+
+<input type="text" bind:value={name} />
+<input type="text" bind:value={text} />
