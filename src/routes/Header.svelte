@@ -12,7 +12,7 @@
 
 <h1>Hello {name}</h1>
 <h1>Your secret name is {name.replace('u', '*')}</h1>
-<h1>Your special name is {text.replaceAll('a', 'X')}</h1>
+<h1>Your special name is {text.replaceAll(/[a-z]/gi, '*')}</h1>
 
 <p>{fake_name}</p>
 
