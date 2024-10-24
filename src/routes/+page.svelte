@@ -11,11 +11,8 @@
 </script>
 
 <main class="w-screen min-h-screen flex flex-col items-center justify-center gap-2">
+	<Header name="Test"></Header>
 	<p>Steg: {formState.step + 1}</p>
-
-	{#if formState.error}
-		<p class="error">{formState.error}</p>
-	{/if}
 
 	{#if formState.step === 0}
 		<div>
@@ -52,4 +49,14 @@
 			}}>Next</button
 		>
 	{/if}
+
+	{#if formState.error}
+		<p class="error">{formState.error}</p>
+	{/if}
 </main>
+
+<style>
+	.error {
+		color: red;
+	}
+</style>
