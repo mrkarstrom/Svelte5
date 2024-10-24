@@ -11,7 +11,7 @@
 </script>
 
 <main class="w-screen min-h-screen flex flex-col items-center justify-center gap-2">
-	<Header name="Test"></Header>
+	<Header name={formState.name}></Header>
 	<p>Steg: {formState.step + 1}</p>
 
 	{@render formStep({ question: 'Vad heter du?', id: 'name', type: 'text' })}
