@@ -14,41 +14,7 @@
 	<Header name="Test"></Header>
 	<p>Steg: {formState.step + 1}</p>
 
-	{#if formState.step === 0}
-		<div>
-			<label for="name">Ditt namn</label>
-			<input type="text" id="name" bind:value={formState.name} />
-		</div>
-		<button
-			class="btn w-[300px] p-3 bg-green-300 border-4 border-green-400 rounded-md hover:bg-transparent"
-			onclick={() => {
-				if (formState.name !== '') {
-					formState.step += 1;
-					formState.error = '';
-				} else {
-					formState.error = 'Skriv in ditt namn!';
-					alert(formState.error);
-				}
-			}}>Next</button
-		>
-	{:else if formState.step === 1}
-		<div class="">
-			<label for="bday">Din födelsedag</label>
-			<input type="text" id="bday" bind:value={formState.birthday} />
-		</div>
-		<button
-			class="btn w-[300px] p-3 bg-green-300 border-4 border-green-400 rounded-md hover:bg-transparent"
-			onclick={() => {
-				if (formState.birthday !== '') {
-					formState.step += 1;
-					formState.error = '';
-				} else {
-					formState.error = 'Skriv in din födelsedag!';
-					alert(formState.error);
-				}
-			}}>Next</button
-		>
-	{/if}
+	{@render formStep({ question: 'Vad heter du?', id: 'name', type: 'text' })}
 
 	{#if formState.error}
 		<p class="error">{formState.error}</p>
