@@ -55,6 +55,15 @@
 	{/if}
 </main>
 
+{#snippet formStep({ question, id, type }: { type: string; id: string; question: string })}
+	<article>
+		<div>
+			<label for={id}>{question}</label>
+			<input {type} {id} bind:value={formState[id]} />
+		</div>
+	</article>
+{/snippet}
+
 <style>
 	.error {
 		color: red;
