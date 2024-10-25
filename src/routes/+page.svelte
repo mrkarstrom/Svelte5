@@ -10,8 +10,14 @@
 	});
 </script>
 
+<Header name={formState.name}>
+	<p>Hello</p>
+	{#snippet secondChild(name)}
+		<p>Second Child is: {name}</p>
+	{/snippet}
+</Header>
+
 <main class="w-screen min-h-screen flex flex-col items-center justify-center gap-2">
-	<Header name={formState.name}></Header>
 	<p>Steg: {formState.step + 1}</p>
 
 	{@render formStep({ question: 'Vad heter du?', id: 'name', type: 'text' })}
