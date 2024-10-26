@@ -12,12 +12,10 @@
 	const QUESTIONS = [
 		{
 			question: 'Vad heter du?',
-			id: 'name',
+			id: 'namn',
 			type: 'text'
 		}
 	];
-
-	
 </script>
 
 <Header name={formState.name} />
@@ -26,10 +24,20 @@
 	<p>Steg: {formState.step + 1}</p>
 
 	{#each QUESTIONS as question (question.id)}
-		{question.id}
-		{@render formStep({ question: 'Vad heter du?', id: 'name', type: 'text' })}
+		<h1>
+			Fråga: {question.id}
+		</h1>
+		{@render formStep({ question: 'Vad heter du?', id: 'namn', type: 'text' })}
 	{/each}
 
+	{#snippet formStep({ question, id, type }: { type: string; id: string; question: string })}
+		<article>
+			<div>
+				<label for={id}>{question}</label>
+				<input {type} {id} bind:value={formState[id]} />
+			</div>
+		</article>
+	{/snippet}
 	{#if formState.step === 0}
 		<div>
 			<label for="name">Ditt namn</label>
@@ -43,7 +51,6 @@
 					formState.error = '';
 				} else {
 					formState.error = 'Skriv in ditt namn!';
-					alert(formState.error);
 				}
 			}}>Next</button
 		>
@@ -60,10 +67,13 @@
 					formState.error = '';
 				} else {
 					formState.error = 'Skriv in din födelsedag!';
-					alert(formState.error);
 				}
 			}}>Next</button
 		>
+	{/if}
+
+	{#if formState.error}
+		<p class="error">{formState.error}</p>
 	{/if}
 </main>
 
